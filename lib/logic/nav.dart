@@ -6,3 +6,11 @@ void push(Widget page, BuildContext context) {
 
   ));
 }
+
+
+void pushR(Widget page, BuildContext context) {
+  Navigator.of(context).pushReplacement(MaterialPageRoute(
+    builder: (context) => page
+
+  ));
+}

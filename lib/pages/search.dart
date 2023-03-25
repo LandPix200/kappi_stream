@@ -58,7 +58,7 @@ class _SearchPageState extends State<SearchPage> {
   }
 }
 
-class VideoViewer extends StatelessWidget {
+class VideoViewer extends StatefulWidget {
   const VideoViewer({
     Key? key,
     required this.e,
@@ -67,16 +67,24 @@ class VideoViewer extends StatelessWidget {
   final YouTubeVideo e;
 
   @override
+  State<VideoViewer> createState() => _VideoViewerState();
+}
+
+class _VideoViewerState extends State<VideoViewer> {
+  bool fav = false;
+
+  @override
   Widget build(BuildContext context) {
     return InkWell(
       child: GFCard(
-        image: Image.network(e.thumbnail.medium.url!),
+        image: Image.network(widget.e.thumbnail.medium.url!),
         showImage: true,
         title: GFListTile(
-          titleText: e.title,
-          description:
-              e.description != null ? Text("\n${e.description!}") : null,
-          subTitleText: e.duration,
+          titleText: widget.e.title,
+          description: widget.e.description != null
+              ? Text("\n${widget.e.description!}")
+              : null,
+          subTitleText: widget.e.duration,
         ),
         buttonBar: GFButtonBar(
             alignment: WrapAlignment.spaceBetween,
@@ -84,15 +92,29 @@ class VideoViewer extends StatelessWidget {
             spacing: 100,
             children: [
               GFButton(
+                color: Colors.deepOrange,
+                size: 40,
                 onPressed: () {
-                  push(LVideoPage(video: e), context);
+                  push(LVideoPage(video: widget.e), context);
                 },
                 text: "LIRE LA VIDEO",
               ),
               GFIconButton(
+                  color: Colors.black,
                   type: GFButtonType.transparent,
-                  icon: Icon(Icons.favorite_border),
-                  onPressed: () {})
+                  icon: Icon(
+                    fav ? Icons.favorite : Icons.favorite_border,
+                    color: Colors.deepOrange,
+                  ),
+                  onPressed: () {
+                    setState(() {
+                      fav = !fav;
+                      if (fav) {
+                        GFToast.showToast("Vidéo ajoutée aux favories", context,
+                            backgroundColor: Colors.deepOrange);
+                      }
+                    });
+                  })
             ]),
       ),
     );

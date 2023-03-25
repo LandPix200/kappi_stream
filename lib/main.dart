@@ -2,9 +2,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:kappi_stream/pages/global.dart';
+import 'package:kappi_stream/pages/login.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
       title: 'Kappi Stream',
       theme: ThemeData(
         textTheme: TextTheme(
-          displayLarge: GoogleFonts.alef(
+          displayLarge: GoogleFonts.aBeeZee(
             fontSize: 18,
             color: Colors.white,
             fontWeight: FontWeight.bold,
@@ -35,7 +36,7 @@ class MyApp extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
-        scaffoldBackgroundColor: Colors.black,
+        scaffoldBackgroundColor: Color.fromARGB(255, 36, 36, 46),
         iconTheme: const IconThemeData(
           color: Colors.white,
         ),
@@ -45,7 +46,7 @@ class MyApp extends StatelessWidget {
           thickness: 3,
         ),
       ),
-      home: const GlobalPage(),
+      home: const LoginPage(),
     );
   }
 }

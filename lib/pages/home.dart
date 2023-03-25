@@ -4,8 +4,10 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:getwidget/getwidget.dart';
 import 'package:kappi_stream/pages/l_video.dart';
+import 'package:kappi_stream/pages/login.dart';
 import 'package:kappi_stream/pages/search.dart';
 import 'package:youtube_api/youtube_api.dart';
+import 'package:icons_plus/icons_plus.dart';
 
 import '../logic/api.dart';
 import '../logic/nav.dart';
@@ -33,6 +35,16 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: GFAppBar(
         title: Text("Kappi stream"),
+        actions: [
+          IconButton(
+              onPressed: () {
+                pushR(LoginPage(), context);
+              },
+              icon: Icon(
+                Iconsax.logout,
+                color: Colors.deepOrange,
+              ))
+        ],
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -90,7 +102,7 @@ class _HomePageState extends State<HomePage> {
                           },
                           child: GFImageOverlay(
                             child: Text(
-                              tt,
+                              "${tt.substring(0, 25)}...",
                               style: Theme.of(context)
                                   .textTheme
                                   .displayLarge!
