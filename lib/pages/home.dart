@@ -48,7 +48,7 @@ class _HomePageState extends State<HomePage> {
                 children: [
                   Text(
                     "    LES PLUS POPULAIRES",
-                    style: Theme.of(context).textTheme.headline1,
+                    style: Theme.of(context).textTheme.displayLarge,
                   ),
                   IconButton(onPressed: () {}, icon: Icon(Icons.arrow_forward))
                 ],
@@ -93,7 +93,7 @@ class _HomePageState extends State<HomePage> {
                               tt,
                               style: Theme.of(context)
                                   .textTheme
-                                  .headline1!
+                                  .displayLarge!
                                   .copyWith(
                                     color: Colors.white,
                                     backgroundColor:
@@ -127,7 +127,7 @@ class _HomePageState extends State<HomePage> {
                 children: [
                   Text(
                     "    LES MOTS LES PLUS UTILISES",
-                    style: Theme.of(context).textTheme.headline1,
+                    style: Theme.of(context).textTheme.displayLarge,
                   ),
                   IconButton(onPressed: () {}, icon: Icon(Icons.arrow_forward))
                 ],
@@ -168,7 +168,7 @@ class _HomePageState extends State<HomePage> {
                                     "@$e",
                                     style: Theme.of(context)
                                         .textTheme
-                                        .headline1!
+                                        .displayLarge!
                                         .copyWith(
                                           color: Colors.white,
                                         ),

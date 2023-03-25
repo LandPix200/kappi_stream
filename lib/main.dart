@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
       title: 'Kappi Stream',
       theme: ThemeData(
         textTheme: TextTheme(
-          headline1: GoogleFonts.alef(
+          displayLarge: GoogleFonts.alef(
             fontSize: 18,
             color: Colors.white,
             fontWeight: FontWeight.bold,
